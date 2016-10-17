@@ -4,6 +4,7 @@ library(lubridate)
 
 fl_ts <- read_csv("data/fl_zika_cases.csv")
 
+all(fl_ts$cum_cases == cumsum(fl_ts$new_cases))
 cum_plot <- ggplot(fl_ts, aes(date, cum_cases)) + geom_line() +
               labs(y="Cumulative Cases", x="Date") + geom_point() + 
               background_grid() 
